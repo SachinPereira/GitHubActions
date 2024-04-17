@@ -1,0 +1,9 @@
+name: Multiple Trigger
+on: [push, workflow_dispatch]
+jobs:
+  FirstJob:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Multiple Runner
+        run: echo " you can trigger this and it will be trigged on the push"
+      
