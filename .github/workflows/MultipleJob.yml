@@ -1,0 +1,13 @@
+name: Multiple Job
+on: push
+jobs:
+  FirstJob:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: "First Step Say Hi"
+        run: echo "Hello World"
+  SecondJob:  
+    runs-on: ubuntu-latest
+    steps:
+      - name: Second Job Say Good Bye
+        run: echo "Bye"
