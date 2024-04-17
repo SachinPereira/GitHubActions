@@ -1,0 +1,15 @@
+name: TriggerWhenPullRequestOpenedProd
+on:
+  pull_request:
+    types:
+      - opned
+    branches:
+      - prod
+  workflow_dispatch:    
+jobs:
+  TriggerWhenPullRequestOpned:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Steps
+      - run: echo "workflow Execution completed"
+    
