@@ -1,5 +1,5 @@
 name: Sequential Execution 
-on: push
+on: workflow_dispatch
 jobs:
   FirstJob:
     runs-on: ubuntu-latest
