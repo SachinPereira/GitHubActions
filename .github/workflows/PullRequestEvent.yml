@@ -1,0 +1,12 @@
+name: Pull Request Event
+on:
+  pull_request:
+    types:
+      - opened
+  workflow_dispatch:
+jobs:
+  PullRequestJob:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull Request
+        run: echo "pull request opened"
