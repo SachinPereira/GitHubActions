@@ -1,0 +1,14 @@
+name: Sequential Execution 
+on: push
+jobs:
+  FirstJob:
+    runs-on: ubuntu-latest
+    steps:
+      - name: First Job Executing
+        run: echo "Executed"
+  SecondJob:
+    needs: [FirstJob]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Second Job Executing
+        run: echo "done"
