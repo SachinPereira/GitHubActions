@@ -1,0 +1,9 @@
+name: Test On Push
+on: 
+ workflow_dispatch:
+jobs:
+  FirstJob:
+    runs-on: k8s-runner
+    steps:
+      - name: Tesing
+        run: echo "Hello world"
