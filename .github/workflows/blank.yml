@@ -3,7 +3,7 @@ on:
  workflow_dispatch:
 jobs:
   FirstJob:
-    runs-on: k8s-runner
+    runs-on: ubuntu-latest
     steps:
       - name: Tesing
         run: echo "Hello world"
