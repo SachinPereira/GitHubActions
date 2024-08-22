@@ -7,7 +7,12 @@ jobs:
       - name: First Step
         run: echo "Hi"
       - name: Say Bye
-        run: echo "Bye"
+        run: |
+          repo_name="test>"
+          repo_name=$(echo $repository_name | sed 's/.$//' | sed 's/>//')
+          echo repo_name
+
+
       
    
  
