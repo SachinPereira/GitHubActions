@@ -3,23 +3,20 @@ name: Run YouTube Video
 on: workflow_dispatch
 
 jobs:
-  run-video:
+  play-video:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '18'
+      - name: Install mpv
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y mpv
 
-    - name: Install Puppeteer
-      run: npm install puppeteer
+      - name: Make shell script executable
+        run: chmod +x play_video.sh
 
-    - name: Set execute permissions
-      run: chmod +x ./curl.sh
-
-    - name: Run YouTube video
-      run: ./curl.sh
+      - name: Run YouTube video 10 times
+        run: ./play_video.sh
