@@ -18,7 +18,7 @@ jobs:
 
       - name: Download YouTube video
         run: |
-          VIDEO_URL="https://www.youtube.com/watch?v=your_video_id"
+          VIDEO_URL="https://www.youtube.com/shorts/B6ebIDCVXW8"
           yt-dlp -f best -o video.mp4 $VIDEO_URL  # Downloads the best quality video
 
       - name: Play the video 10 times using mpv
