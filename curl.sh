@@ -3,10 +3,15 @@
 # URL of the YouTube video
 VIDEO_URL="https://www.youtube.com/shorts/B6ebIDCVXW8" # Replace with your YouTube video URL
 
-# Run the YouTube video 10 times
-for i in {1..10}
-do
-  echo "Running YouTube video - Attempt $i"
-  curl -L $VIDEO_URL
-  sleep 5 # Delay of 5 seconds between each run
-done
+# Create a Puppeteer script to play the video
+cat <<EOF > play-video.js
+const puppeteer = require('puppeteer');
+
+(async () => {
+  const browser = await puppeteer.launch({ headless: false });
+  const page = await browser.newPage();
+  await page.goto('$VIDEO_URL');
+  await page.waitForTimeout(60000); // Wait for 60 seconds to let the video play
+  await browser.close();
+})();
+EOF
