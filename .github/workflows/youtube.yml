@@ -1,4 +1,4 @@
-name: Run YouTube Video
+name: Play Public YouTube Video
 
 on: workflow_dispatch
 
@@ -15,8 +15,11 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y mpv
 
-      - name: Make shell script executable
-        run: chmod +x curl.sh
-
-      - name: Run YouTube video 10 times
-        run: ./curl.sh
+      - name: Play YouTube video 10 times
+        run: |
+          VIDEO_URL="https://www.youtube.com/shorts/B6ebIDCVXW8"
+          for i in $(seq 1 10)
+          do
+              echo "Playing video - Attempt $i"
+              mpv --no-video $VIDEO_URL  # This plays audio-only. Remove --no-video to play the full video
+          done
