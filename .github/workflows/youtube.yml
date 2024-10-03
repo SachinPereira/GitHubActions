@@ -7,19 +7,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install mpv
+      - name: Install yt-dlp and mpv
         run: |
           sudo apt-get update
-          sudo apt-get install -y mpv
+          sudo apt-get install -y python3-pip mpv ffmpeg
+          pip3 install yt-dlp
 
-      - name: Play YouTube video 10 times
+      - name: Download YouTube video
         run: |
-          VIDEO_URL="https://www.youtube.com/shorts/B6ebIDCVXW8"
+          VIDEO_URL="https://www.youtube.com/watch?v=your_video_id"
+          yt-dlp -f best -o video.mp4 $VIDEO_URL  # Downloads the best quality video
+
+      - name: Play the video 10 times using mpv
+        run: |
           for i in $(seq 1 10)
           do
               echo "Playing video - Attempt $i"
-              mpv --no-video $VIDEO_URL  # This plays audio-only. Remove --no-video to play the full video
+              mpv video.mp4
           done
