@@ -15,3 +15,5 @@ const puppeteer = require('puppeteer');
   await browser.close();
 })();
 EOF
+# Run the Puppeteer script
+node play-video.js
