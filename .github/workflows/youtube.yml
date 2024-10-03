@@ -16,7 +16,7 @@ jobs:
           sudo apt-get install -y mpv
 
       - name: Make shell script executable
-        run: chmod +x play_video.sh
+        run: chmod +x curl.sh
 
       - name: Run YouTube video 10 times
-        run: ./play_video.sh
+        run: ./curl.sh
