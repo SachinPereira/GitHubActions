@@ -11,4 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Pull Request
-        run: echo "pull request opened"
+        run: echo "pull request opened.."
